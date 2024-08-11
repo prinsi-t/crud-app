@@ -55,7 +55,7 @@ MongoClient.connect(mongoURI)
       console.log(req.body);
       quotesCollection
         .findOneAndUpdate(
-          { name: "Yoda" },
+          { name: "Darth Vader" },
           {
             $set: {
               name: req.body.name,
@@ -68,9 +68,17 @@ MongoClient.connect(mongoURI)
           }
         )
         .then((result) => {
-          console.log("Updated Result:", result);
-          res.json({ updatedResult: result });
-          
+         
+
+          if(result){
+            console.log('update document',result);
+            res.json({message:'Quote updated successfully',updatedQuote:result.value})
+          }
+          else{
+            console.log('No document matched the query. New document inserted.')
+            res.json({message:'new quote inserted',insertedquote:result.value})
+          }
+
         })
         .catch((error) => console.error(error));
     });
