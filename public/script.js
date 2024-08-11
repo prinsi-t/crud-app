@@ -11,5 +11,10 @@ update.addEventListener('click', _ => {
       quote: 'I find your lack of faith disturbing.',
     }),
   })
+  .then((res)=>res.json())
+  .then((updateStarwar)=>{
+    console.log(updateStarwar)
+    location.reload()
+  })
 })
 
