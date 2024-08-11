@@ -7,9 +7,14 @@ update.addEventListener('click', _ => {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Darth Vader',
+      name: 'Yoda',
       quote: 'I find your lack of faith disturbing.',
     }),
+  })
+  .then((res)=>res.json())
+  .then((updateStarwar)=>{
+    console.log(updateStarwar)
+    location.reload()
   })
 })
 
