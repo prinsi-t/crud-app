@@ -1,12 +1,9 @@
-require('dotenv').config()
-
-const bodyParser = require('body-parser')
-const express = require('express')
+import dotenv from 'dotenv'
+dotenv.config();
+import bodyParser from 'body-parser'
+import express from 'express'
 const app = express()
-const MongoClient = require('mongodb').MongoClient
-
-
-
+import { MongoClient } from 'mongodb';
 
 
 const mongoURI = process.env.MONGODB_URI;
